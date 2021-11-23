@@ -8,15 +8,14 @@ Just as simple as run `docker-compose up -d` and you're ready to go on http://lo
 put your PHP's file on `/app/` directory
 
 ## Docker Compose example
-This the following example of `docker-compose.yml` file
+This the following example of `docker-compose.yml` file. 
+Most of the variables I took from `.env` file.
 ```yaml
 version: "3.8"
 
 services:
   app:
-    build:
-      context: .
-      dockerfile: ./docker/server/Dockerfile
+    image: huedaya/php-imagick:latest
     container_name: ${APP_CONTAINER_NAME}
     mem_limit: 300m
     volumes:
