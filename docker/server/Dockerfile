@@ -13,6 +13,11 @@ RUN docker-php-ext-install zip
 # Install git
 RUN apt-get update && apt-get -y install git
 
+# Install php ext-intl
+RUN apt-get -y update && apt-get install -y libicu-dev
+RUN docker-php-ext-configure intl
+RUN docker-php-ext-install intl
+
 # Install Mysql
 RUN docker-php-ext-install pdo pdo_mysql mysqli
 RUN a2enmod rewrite
