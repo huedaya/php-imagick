@@ -12,6 +12,11 @@ RUN apt-get update && apt-get install -y \
     unzip
 RUN docker-php-ext-install zip
 
+RUN apt-get install -y libicu-dev
+RUN docker-php-ext-configure intl
+RUN docker-php-ext-install intl
+RUN docker-php-ext-enable intl
+
 # Install git
 RUN apt-get update && apt-get -y install git
 
